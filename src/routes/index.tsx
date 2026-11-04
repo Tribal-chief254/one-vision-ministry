@@ -79,7 +79,7 @@ function Index() {
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 text-primary-foreground">
           <a href="/" className="leading-tight">
-            <span className="block font-display text-lg font-800 font-extrabold tracking-wide">CHANNELS OF CHRIST</span>
+            <span className="block font-display text-lg font-extrabold tracking-wide">CHANNELS OF CHRIST</span>
             <span className="block text-[11px] tracking-[0.4em] text-accent">MINISTRIES</span>
           </a>
           <nav className="hidden items-center gap-7 text-sm lg:flex">
