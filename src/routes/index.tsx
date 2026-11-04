@@ -102,7 +102,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; 
     if (!el) return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
+        if (e?.isIntersecting) {
           el.classList.add("in");
           io.disconnect();
         }
@@ -132,6 +132,7 @@ function Index() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState(0);
+  const cur = expressions[active] ?? expressions[0]!;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -326,11 +327,11 @@ function Index() {
             <span className="absolute -right-6 -top-10 font-display text-[12rem] font-extrabold leading-none text-primary-foreground/5">
               0{active + 1}
             </span>
-            <p className="relative text-xs uppercase tracking-[0.35em] text-accent">{expressions[active].tag}</p>
-            <h3 className="relative mt-6 font-display text-3xl font-bold md:text-4xl">{expressions[active].line}</h3>
-            <p className="relative mt-6 max-w-md leading-relaxed opacity-75">{expressions[active].detail}</p>
+            <p className="relative text-xs uppercase tracking-[0.35em] text-accent">{cur.tag}</p>
+            <h3 className="relative mt-6 font-display text-3xl font-bold md:text-4xl">{cur.line}</h3>
+            <p className="relative mt-6 max-w-md leading-relaxed opacity-75">{cur.detail}</p>
             <a href="#contact" className="relative mt-10 inline-block border-b border-accent pb-1 font-display text-sm font-semibold uppercase tracking-wider text-accent">
-              Visit {expressions[active].name.split(" ").slice(-2).join(" ")} →
+              Visit {cur.name.split(" ").slice(-2).join(" ")} →
             </a>
           </div>
         </div>
